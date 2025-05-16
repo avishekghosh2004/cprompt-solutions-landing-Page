@@ -1,4 +1,3 @@
-import { useState } from "react";
 import Navbar from "./components/Navbar";
 import HeroSection from "./components/HeroSection";
 import Stats from "./components/Stats";
@@ -8,12 +7,11 @@ import CustomerTestimonials from "./components/CustomerTestimonials";
 import ContactInfo from "./components/ContactInfo";
 import Footer from "./components/Footer";
 import ThemeToggle from "./components/ThemeToggle";
-import { useTheme } from "./theme/ThemeContext";
+import { useAppStore } from "./store/store";
 import { theme } from "./theme/theme";
 
 function App() {
-  const [searchQuery, setSearchQuery] = useState("");
-  const { theme: currentTheme } = useTheme();
+  const currentTheme = useAppStore((state) => state.theme);
 
   return (
     <div
@@ -23,7 +21,7 @@ function App() {
         color: theme[currentTheme].text.primary,
       }}
     >
-      <Navbar searchQuery={searchQuery} setSearchQuery={setSearchQuery} />
+      <Navbar />
       <main>
         <HeroSection />
         <Stats />

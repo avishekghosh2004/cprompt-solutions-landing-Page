@@ -1,11 +1,8 @@
-import type { FC } from "react";
+import { useAppStore } from "../store/store";
 
-interface NavbarProps {
-  searchQuery: string;
-  setSearchQuery: (query: string) => void;
-}
+const Navbar = () => {
+  const { searchQuery, setSearchQuery } = useAppStore();
 
-const Navbar: FC<NavbarProps> = ({ searchQuery, setSearchQuery }) => {
   return (
     <nav className="sticky top-0 z-50 bg-dark-800/95 backdrop-blur-sm border-b border-dark-600">
       <div className="container py-4">

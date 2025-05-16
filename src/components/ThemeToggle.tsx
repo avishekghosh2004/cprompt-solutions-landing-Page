@@ -1,12 +1,12 @@
-import { useTheme } from "../theme/ThemeContext";
+import { useAppStore } from "../store/store";
 
 const ThemeToggle = () => {
-  const { theme, toggleTheme } = useTheme();
+  const { theme, toggleTheme } = useAppStore();
 
   return (
     <button
       onClick={toggleTheme}
-      className="fixed bottom-4 right-4 p-3 rounded-full bg-gray-800 dark:bg-gray-200"
+      className="fixed bottom-4 right-4 p-3 rounded-full shadow-lg bg-gray-800 dark:bg-gray-200 hover:scale-110 transition-transform duration-200"
       aria-label="Toggle theme"
     >
       {theme === "dark" ? (
