@@ -1,45 +1,54 @@
-import tailwindcssAnimate from "tailwindcss-animate";
+import { darkTheme, lightTheme } from "./src/styles/theme";
 
 /** @type {import('tailwindcss').Config} */
 module.exports = {
   content: ["./src/**/*.{js,ts,jsx,tsx}"],
+  darkMode: "class",
   theme: {
     extend: {
-      fontFamily: {
-        sans: ['Inter', 'system-ui', 'sans-serif'],
-        heading: ['Poppins', 'sans-serif'],
-      },
       colors: {
         dark: {
-          900: '#0f0f11',
-          800: '#18181b',
-          700: '#27272a',
-          600: '#3f3f46',
-          500: '#52525b',
+          background: {
+            primary: darkTheme.background.primary,
+            secondary: darkTheme.background.secondary,
+            tertiary: darkTheme.background.tertiary,
+          },
+          text: {
+            primary: darkTheme.text.primary,
+            secondary: darkTheme.text.secondary,
+            muted: darkTheme.text.muted,
+          },
+          accent: {
+            DEFAULT: darkTheme.accent.primary,
+            hover: darkTheme.accent.hover,
+          },
+          border: {
+            primary: darkTheme.border.primary,
+            secondary: darkTheme.border.secondary,
+          },
         },
-        accent: {
-          DEFAULT: '#6366f1',
-          dark: '#4f46e5',
-          light: '#818cf8',
-        }
-      },
-      animation: {
-        "fade-in": "fadeIn 0.5s ease-in",
-        "slide-up": "slideUp 0.5s ease-out",
-        "bounce-subtle": "bounce 1s ease-in-out infinite",
-      },
-      keyframes: {
-        fadeIn: {
-          "0%": { opacity: "0" },
-          "100%": { opacity: "1" },
+        light: {
+          background: {
+            primary: lightTheme.background.primary,
+            secondary: lightTheme.background.secondary,
+            tertiary: lightTheme.background.tertiary,
+          },
+          text: {
+            primary: lightTheme.text.primary,
+            secondary: lightTheme.text.secondary,
+            muted: lightTheme.text.muted,
+          },
+          accent: {
+            DEFAULT: lightTheme.accent.primary,
+            hover: lightTheme.accent.hover,
+          },
+          border: {
+            primary: lightTheme.border.primary,
+            secondary: lightTheme.border.secondary,
+          },
         },
-        slideUp: {
-          "0%": { transform: "translateY(20px)", opacity: "0" },
-          "100%": { transform: "translateY(0)", opacity: "1" },
-        },
       },
-  plugins: [tailwindcssAnimate],
+    },
   },
-  plugins: [tailwindcssAnimate],
-}
-}
+  plugins: [],
+};

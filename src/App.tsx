@@ -7,15 +7,24 @@ import ProductCategories from "./components/ProductCategories";
 import CustomerTestimonials from "./components/CustomerTestimonials";
 import ContactInfo from "./components/ContactInfo";
 import Footer from "./components/Footer";
+import ThemeToggle from "./components/ThemeToggle";
+import { useTheme } from "./theme/ThemeContext";
+import { theme } from "./theme/theme";
 
 function App() {
   const [searchQuery, setSearchQuery] = useState("");
-
+  const { theme: currentTheme } = useTheme();
 
   return (
-    <div className="min-h-screen bg-dark-900 text-gray-100">
+    <div
+      className="min-h-screen transition-colors duration-200"
+      style={{
+        backgroundColor: theme[currentTheme].background.primary,
+        color: theme[currentTheme].text.primary,
+      }}
+    >
       <Navbar searchQuery={searchQuery} setSearchQuery={setSearchQuery} />
-      <main className="container py-8 space-y-16">
+      <main>
         <HeroSection />
         <Stats />
         <Features />
@@ -24,9 +33,9 @@ function App() {
         <ContactInfo />
       </main>
       <Footer />
+      <ThemeToggle />
     </div>
   );
-
 }
 
 export default App;
